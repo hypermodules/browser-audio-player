@@ -1,19 +1,42 @@
 {
   "name": "browser-audio-player",
+  "description": "An abstract-audio-player that runs in browsers",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "Bret Comnes",
+  "bugs": {
+    "url": "https://github.com/hypermodules/browser-audio-player/issues"
   },
+  "devDependencies": {
+    "@tap-format/spec": "^0.2.0",
+    "bankai": "^9.0.0-rc11",
+    "browserify": "^14.5.0",
+    "dependency-check": "^2.9.1",
+    "npm-run-all": "^4.1.2",
+    "standard": "^10.0.3",
+    "tape-run": "^3.0.0"
+  },
+  "homepage": "https://github.com/hypermodules/browser-audio-player#readme",
+  "keywords": [
+    "abstract-audio-player",
+    "audio",
+    "browser",
+    "browserify",
+    "playback"
+  ],
+  "license": "MIT",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hypermodules/browser-audio-player.git"
   },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hypermodules/browser-audio-player/issues"
-  },
-  "homepage": "https://github.com/hypermodules/browser-audio-player#readme"
+  "scripts": {
+    "build": "bankai build example/complex/index.js dist",
+    "start": "budo example/complex/index.js --live --open",
+    "start:simple": "budo example/simple/index.js --live --open",
+    "start:test": "budo test.js --live --open",
+    "test": "run-s test:*",
+    "test:browser": "browserify test.js | tape-run | tap-format-spec",
+    "test:deps": "dependency-check .",
+    "test:lint": "standard"
+  }
 }
