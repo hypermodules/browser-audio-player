@@ -6,6 +6,10 @@
   "bugs": {
     "url": "https://github.com/hypermodules/browser-audio-player/issues"
   },
+  "dependencies": {
+    "global": "^4.3.2",
+    "nanobus": "^4.3.1"
+  },
   "devDependencies": {
     "@tap-format/spec": "^0.2.0",
     "bankai": "^9.0.0-rc11",
